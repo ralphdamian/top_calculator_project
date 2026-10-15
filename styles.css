@@ -23,6 +23,7 @@
     align-items: flex-end;
     border: 1px solid black;
     min-height: 128px;
+    font-size: 48px;
 }
 
 .row {
