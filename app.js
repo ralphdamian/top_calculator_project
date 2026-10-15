@@ -44,6 +44,7 @@ const display = document.querySelector(".display");
 
 // select all digit buttons and add an event listener that adds their value to firstNum if operator hasnt been pressed yet and secondNum if it has"
 const digits = document.querySelectorAll(".digit");
+console.table(digits);
 for (const digit of digits){
     digit.addEventListener("click", (e) => {
         if(selectedOperator === ""){
