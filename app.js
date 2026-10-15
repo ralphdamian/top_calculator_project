@@ -37,6 +37,7 @@ function operate(fNum, sNum, operator) {
             return "ERROR: AN INCORRECT OPERATOR WAS USED!"
     }
 }
+// select the display div and store it in display variable
 const display = document.querySelector(".display");
 // select all digit buttons and add an event listener that adds their value to firstNum if operator hasnt been pressed yet and secondNum if it has"
 const digits = document.querySelectorAll(".digit");
