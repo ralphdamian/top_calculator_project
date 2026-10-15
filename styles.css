@@ -34,3 +34,7 @@ button {
 .zero-button {
     width: 256px;
 }
+
+#clear {
+    width: 384px;
+}
