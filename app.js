@@ -1,5 +1,5 @@
-let firstNum = 0;
-let secondNum = 0;
+let firstNum = "";
+let secondNum = "";
 let operator = "";
 
 // add two numbers
@@ -37,8 +37,24 @@ function operate(fNum, sNum, operator) {
             return "ERROR: AN INCORRECT OPERATOR WAS USED!"
     }
 }
+const display = document.querySelector(".display");
+const digits = document.querySelectorAll(".digit");
+for (const digit of digits){
+    digit.addEventListener("click", (e) => {
+        if(operator === ""){
+            firstNum += e.target.textContent;
+            console.log(firstNum);
+            updateDisplay(firstNum);
+        } else{
+            secondNum += e.target.textContent;
+            console.log(secondNum);
+            updateDisplay(secondNum);
+        }
+    })
+}
 
 function updateDisplay(text) {
-    const display = document.querySelector(".display");
+    display.textContent = text;
+
 }
 
