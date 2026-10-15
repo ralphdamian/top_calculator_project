@@ -1,6 +1,7 @@
 let firstNum = "";
 let secondNum = "";
 let selectedOperator = "";
+let result = ""
 
 // add two numbers
 function add(a, b) {
@@ -9,17 +10,17 @@ function add(a, b) {
 
 // subtract 2 numbers
 function subtract(a, b) {
-    return a - b;
+    return Number(a) - Number(b);
 }
 
 // multiply 2 numbers
 function multiply(a, b) {
-    return a * b;
+    return Number(a) * Number(b);
 }
 
 // divide 2 numbers
 function divide(a, b) {
-    return a / b;
+    return Number(a) / Number(b);
 }
 
 // take operator and call operation based on operator, passing in 2 numbers
@@ -66,11 +67,17 @@ for (const operator of operators){
         updateDisplay(selectedOperator);
     })
 }
+// select the equals button and assign it to a variable named equals
+const equalsButton = document.querySelector("#equals");
+// add an event listener that calls operate on click
+equalsButton.addEventListener("click", ()=> {
+    operate(firstNum, secondNum, selectedOperator)
+
+})
+
 // update the display 
 function updateDisplay() {
-    // if only fNum has a value display only fnum
-    // if fNum and selectedOperator have a value display them both
-    // if fNum, selected Operator and secondNum have a value display all
+    // set the displays text content to show all buttons pressed
     display.textContent = firstNum + " " + selectedOperator + " " + secondNum;
 
 }
