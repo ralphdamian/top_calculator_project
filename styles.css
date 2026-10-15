@@ -7,17 +7,30 @@
 
 .calculator {
     border: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
 }
 
 .display {
     border: 1px solid black;
 }
 
+.row {
+    display: flex;
+}
+
 button {
-    height: 128px;
-    width: 128px;
+    min-width: 128px;
+    min-height: 128px;
 }
 
 .zero-button {
     width: 256px;
+
 }
