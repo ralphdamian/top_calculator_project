@@ -20,6 +20,9 @@ function multiply(a, b) {
 
 // divide 2 numbers
 function divide(a, b) {
+    if (Number(b) === 0) {
+        return "ERROR: YOU CANNOT DIVIDE BY 0"
+    }
     return Number(a) / Number(b);
 }
 
