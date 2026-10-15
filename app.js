@@ -56,13 +56,25 @@ const digits = document.querySelectorAll(".digit");
 console.table(digits);
 for (const digit of digits){
     digit.addEventListener("click", (e) => {
-        if(selectedOperator === ""){
+        
+        // if the last button pressed was equals then set firstNum to value
+        if(lastButtonPressed === "=") { 
+            firstNum = e.target.textContent;
+            lastButtonPressed = e.target.textContent;
+            updateDisplay();
+        
+        // if operator buttong has not been pressed set firstNum to value
+        } else if(selectedOperator === ""){
             firstNum += e.target.textContent;
             console.log(firstNum);
+            lastButtonPressed = e.target.textContent;
             updateDisplay();
+            
+        // if the operator has already been clicked set secondNum to the value of the pressed digit
         } else{
             secondNum += e.target.textContent;
             console.log(secondNum);
+            lastButtonPressed = e.target.textContent;
             updateDisplay();
         }
     })
@@ -74,6 +86,7 @@ for (const operator of operators){
     operator.addEventListener("click", (e) => {
         if(!selectedOperator){
             selectedOperator = e.target.textContent;
+            lastButtonPressed = e.target.textContent;
             console.log(selectedOperator);
             updateDisplay(selectedOperator);
         } else {
@@ -81,6 +94,7 @@ for (const operator of operators){
             secondNum = "";
             selectedOperator = "";
             selectedOperator = e.target.textContent;
+            lastButtonPressed = e.target.textContent;
             console.log(selectedOperator);
             updateDisplay();
 
@@ -90,10 +104,11 @@ for (const operator of operators){
 // select the equals button and assign it to a variable named equalsButton
 const equalsButton = document.querySelector("#equals");
 // add an event listener that calls operate on click
-equalsButton.addEventListener("click", ()=> {
+equalsButton.addEventListener("click", (e)=> {
     firstNum = operate(firstNum, secondNum, selectedOperator);
     secondNum = "";
     selectedOperator = "";
+    lastButtonPressed = e.target.textContent;
     updateDisplay();
 
 })
