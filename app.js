@@ -1,11 +1,11 @@
 let firstNum = "";
 let secondNum = "";
 let selectedOperator = "";
-let result = ""
+let lastButtonPressed = "";
 
 // add two numbers
 function add(a, b) {
-    return a + b;
+    return Number(a) + Number(b);
 }
 
 // subtract 2 numbers
@@ -38,6 +38,15 @@ function operate(fNum, sNum, operator) {
             return "ERROR: AN INCORRECT OPERATOR WAS USED!"
     }
 }
+// function to clear the display and all variables
+function clear(){
+    firstNum = "";
+    secondNum = "";
+    selectedOperator = "";
+    lastButtonPressed = "";
+    updateDisplay();
+
+}
 
 // select the display div and store it in display variable
 const display = document.querySelector(".display");
@@ -63,12 +72,22 @@ const operators = document.querySelectorAll(".operator");
 // loop through operators nodelist and add an eventListener that sets the operator variable to its value
 for (const operator of operators){
     operator.addEventListener("click", (e) => {
-        selectedOperator = e.target.textContent;
-        console.log(selectedOperator);
-        updateDisplay(selectedOperator);
+        if(!selectedOperator){
+            selectedOperator = e.target.textContent;
+            console.log(selectedOperator);
+            updateDisplay(selectedOperator);
+        } else {
+            firstNum = operate(firstNum, secondNum, selectedOperator);
+            secondNum = "";
+            selectedOperator = "";
+            selectedOperator = e.target.textContent;
+            console.log(selectedOperator);
+            updateDisplay();
+
+        }
     })
 }
-// select the equals button and assign it to a variable named equals
+// select the equals button and assign it to a variable named equalsButton
 const equalsButton = document.querySelector("#equals");
 // add an event listener that calls operate on click
 equalsButton.addEventListener("click", ()=> {
@@ -78,6 +97,11 @@ equalsButton.addEventListener("click", ()=> {
     updateDisplay();
 
 })
+
+// select the clear button and assign it to a variable named clearButton
+const clearButton = document.querySelector("#clear");
+// add an event listener that calls clear on click
+clearButton.addEventListener("click", () => clear());
 
 // update the display 
 function updateDisplay() {
