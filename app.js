@@ -1,6 +1,6 @@
 let firstNum = "";
 let secondNum = "";
-let operator = "";
+let selectedOperator = "";
 
 // add two numbers
 function add(a, b) {
@@ -37,13 +37,15 @@ function operate(fNum, sNum, operator) {
             return "ERROR: AN INCORRECT OPERATOR WAS USED!"
     }
 }
+
 // select the display div and store it in display variable
 const display = document.querySelector(".display");
+
 // select all digit buttons and add an event listener that adds their value to firstNum if operator hasnt been pressed yet and secondNum if it has"
 const digits = document.querySelectorAll(".digit");
 for (const digit of digits){
     digit.addEventListener("click", (e) => {
-        if(operator === ""){
+        if(selectedOperator === ""){
             firstNum += e.target.textContent;
             console.log(firstNum);
             updateDisplay(firstNum);
@@ -52,6 +54,16 @@ for (const digit of digits){
             console.log(secondNum);
             updateDisplay(secondNum);
         }
+    })
+}
+// select the operator buttons and assign it to a variable named operators
+const operators = document.querySelectorAll(".operator");
+// loop through operators nodelist and add an eventListener that sets the operator variable to its value
+for (const operator of operators){
+    operator.addEventListener("click", (e) => {
+        selectedOperator = e.target.textContent;
+        console.log(selectedOperator);
+        updateDisplay(selectedOperator);
     })
 }
 // update the display 
