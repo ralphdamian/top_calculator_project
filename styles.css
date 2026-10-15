@@ -18,6 +18,9 @@
 }
 
 .display {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
     border: 1px solid black;
     min-height: 128px;
 }
