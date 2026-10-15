@@ -38,6 +38,7 @@ function operate(fNum, sNum, operator) {
     }
 }
 const display = document.querySelector(".display");
+// select all digit buttons and add an event listener that adds their value to firstNum if operator hasnt been pressed yet and secondNum if it has"
 const digits = document.querySelectorAll(".digit");
 for (const digit of digits){
     digit.addEventListener("click", (e) => {
@@ -52,7 +53,7 @@ for (const digit of digits){
         }
     })
 }
-
+// update the display 
 function updateDisplay(text) {
     display.textContent = text;
 
