@@ -2,4 +2,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+}
+
+.calculator {
+    border: 1px solid grey;
+}
+
+.display {
+    border: 1px solid black;
+}
+
+button {
+    height: 128px;
+    width: 128px;
+}
+
+.zero-button {
+    width: 256px;
 }
