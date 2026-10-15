@@ -69,7 +69,7 @@ for (const digit of digits){
             console.log(firstNum);
             lastButtonPressed = e.target.textContent;
             updateDisplay();
-            
+
         // if the operator has already been clicked set secondNum to the value of the pressed digit
         } else{
             secondNum += e.target.textContent;
@@ -84,12 +84,21 @@ const operators = document.querySelectorAll(".operator");
 // loop through operators nodelist and add an eventListener that sets the operator variable to its value
 for (const operator of operators){
     operator.addEventListener("click", (e) => {
+        // if selected operator is empty then set the selectedOperator to the clicked operator
         if(!selectedOperator){
             selectedOperator = e.target.textContent;
             lastButtonPressed = e.target.textContent;
             console.log(selectedOperator);
             updateDisplay(selectedOperator);
-        } else {
+        // if secondNum is empty then the last thing entered was not an operator so set operator to current selection
+        } else if (!secondNum){
+            selectedOperator = e.target.textContent;
+            lastButtonPressed = e.target.textContent;
+            console.log(selectedOperator);
+            updateDisplay(selectedOperator);
+        }
+        // if an operator is clicked and the last button pressed was a digit call operate and set up for next operation
+        else {
             firstNum = operate(firstNum, secondNum, selectedOperator);
             secondNum = "";
             selectedOperator = "";
