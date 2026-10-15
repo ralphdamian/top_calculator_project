@@ -71,7 +71,10 @@ for (const operator of operators){
 const equalsButton = document.querySelector("#equals");
 // add an event listener that calls operate on click
 equalsButton.addEventListener("click", ()=> {
-    operate(firstNum, secondNum, selectedOperator)
+    firstNum = operate(firstNum, secondNum, selectedOperator);
+    secondNum = "";
+    selectedOperator = "";
+    updateDisplay();
 
 })
 
