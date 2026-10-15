@@ -48,11 +48,11 @@ for (const digit of digits){
         if(selectedOperator === ""){
             firstNum += e.target.textContent;
             console.log(firstNum);
-            updateDisplay(firstNum);
+            updateDisplay();
         } else{
             secondNum += e.target.textContent;
             console.log(secondNum);
-            updateDisplay(secondNum);
+            updateDisplay();
         }
     })
 }
@@ -67,8 +67,11 @@ for (const operator of operators){
     })
 }
 // update the display 
-function updateDisplay(text) {
-    display.textContent = text;
+function updateDisplay() {
+    // if only fNum has a value display only fnum
+    // if fNum and selectedOperator have a value display them both
+    // if fNum, selected Operator and secondNum have a value display all
+    display.textContent = firstNum + " " + selectedOperator + " " + secondNum;
 
 }
 
